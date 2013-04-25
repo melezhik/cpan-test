@@ -9,7 +9,7 @@ Scenario: install cpan module
     Given I have chef recipe:
     """
     cpan_client 'Bundler-v0.0.30.tar.gz' do
-        from_cookbook 'cpan-test'
+        from_cookbook 'test'
         install_type 'cpan_module'
         user 'root'
         group 'root'
@@ -23,7 +23,7 @@ Scenario: install cpan module
     Given I have chef recipe:
     """
     cpan_client 'Bundler-v0.0.30.tar.gz' do
-        from_cookbook 'cpan-test'
+        from_cookbook 'test'
         install_type 'cpan_module'
         user 'root'
         group 'root'
