@@ -1,7 +1,11 @@
 Feature: cpan_client should be able to install under not privileged user
 
 Scenario: install cpan module
-    * I run 'rm -rf /tmp/foo/'
+    * I run 'sudo groupadd melezhik'
+    * it should exit '0'
+    * I run 'sudo useradd melezhik -g melezhik'
+    * it should exit '0'
+   * I run 'rm -rf /tmp/foo/'
     * it should exit '0'
     * a directory named '/tmp/foo/' should not exist
     * I run 'mkdir -p /tmp/foo/bar && chown melezhik -R /tmp/foo/ && chgrp melezhik -R /tmp/foo/'
