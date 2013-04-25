@@ -3,10 +3,12 @@ rvm:
   - "1.9.3"
 before_install: 
   - git clone  https://github.com/melezhik/cookbooks.git
-  - sudo gem install chef
-  - sudo gem install cucumber-nagios
-  - sudo chef-solo  -c solo.rb -o cpan::bootstrap
-script: sudo -E cucumber
+  - gem install chef --no-ri --no-rdoc
+  - gem install cucumber-nagios --no-ri --no-rdoc
+  - rvmsudo_secure_path=1 rvmsudo chef-solo  -c solo.rb -o cpan::bootstrap 
+script: rvmsudo_secure_path=1 rvmsudo cucumber
+
+
 
 
 
