@@ -5,7 +5,7 @@ Scenario: install cpan module
     * it should exit '0'
     * I run 'perl -MBundler -e 1'
     * it should exit '2'
-    * 'stderr' should have 'Can't locate Bundler\.pm'
+    * 'stdout' should have 'Can't locate Bundler\.pm'
     Given I have chef recipe:
     """
     cpan_client 'Bundler' do
@@ -16,9 +16,9 @@ Scenario: install cpan module
     end
     """
     When I run chef recipe on my node
-    Then 'stderr' should have 'don\*t install, run tests only'
+    Then 'stdout' should have 'don\*t install, run tests only'
     Then 'stdout' should have '\./Build test -- OK'
     And I run 'perl -MBundler -e 1'
     Then it should exit '2'
-    And 'stderr' should have 'Can't locate Bundler\.pm'
+    And 'stdout' should have 'Can't locate Bundler\.pm'
 

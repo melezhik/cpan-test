@@ -5,7 +5,7 @@ Scenario: install cpan module
     * it should exit '0'
     * I run 'perl -MBundler -e 1'
     * it should exit '2'
-    * 'stderr' should have 'Can't locate Bundler\.pm'
+    * 'stdout' should have 'Can't locate Bundler\.pm'
     Given I have chef recipe:
     """
     cpan_client 'Bundler-v0.0.30.tar.gz' do

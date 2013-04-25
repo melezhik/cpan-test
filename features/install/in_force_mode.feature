@@ -5,7 +5,7 @@ Scenario: install cpan module
     * it should exit '0'
     * I run 'perl -MBundler -e 1'
     * it should exit '2'
-    * 'stderr' should have 'Can't locate Bundler\.pm'
+    * 'stdout' should have 'Can't locate Bundler\.pm'
     Given I have chef recipe:
     """
     cpan_client 'Bundler' do
@@ -17,7 +17,7 @@ Scenario: install cpan module
     end
     """
     When I run chef recipe on my node
-    Then 'stderr' should have 'force'
+    Then 'stdout' should have 'force'
     And I run 'perl -MBundler -e 1'
     Then it should exit '0'
 
