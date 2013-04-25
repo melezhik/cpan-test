@@ -5,6 +5,7 @@ before_install:
   - git clone  https://github.com/melezhik/cookbooks.git
   - curl -L http://cpanmin.us | perl - --sudo App::cpanminus
   - sudo cpanm CPAN
+  - sudo cpanm local::lib
   - sudo cpanm App::pmuninstall
   - gem install chef --no-ri --no-rdoc
   - gem install cucumber-nagios --no-ri --no-rdoc

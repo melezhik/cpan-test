@@ -37,7 +37,7 @@ Scenario: try to install cpan module with unexisted distributive
     end
     """
     When I run chef recipe on my node
-    Then 'stdout' should have 'Errno::ENOENT: No such file or directory'
+    Then 'stdout' should have 'does not contain a file at any of these locations'
     When I run 'perl -MBundler -e 1'
     Then it should exit '2'
     And 'stderr' should have 'Can't locate Bundler\.pm'
