@@ -5,9 +5,7 @@ before_install:
   - git clone  https://github.com/melezhik/cookbooks.git
   - curl -L http://cpanmin.us | perl - --sudo App::cpanminus
   - sudo cpanm CPAN
-  - gem install chef --no-ri --no-rdoc
-  - gem install cucumber-nagios --no-ri --no-rdoc
-script: rvmsudo_secure_path=1 rvmsudo cucumber
+script: PATH=$PATH:$PWD/lib/bin  GEM_PATH=$GEM_PATH:$PWD/lib sudo cucumber
 
 
 
