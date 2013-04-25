@@ -5,7 +5,7 @@ Scenario: install cpan module
     * it should exit '0'
     * I run 'perl -MBundler -e 1'
     * it should exit '2'
-    * 'stdout' should have 'Can't locate Bundler\.pm'
+    * 'stderr' should have 'Can't locate Bundler\.pm'
     Given I have chef recipe:
     """
     cpan_client 'Bundler-v0.0.30.tar.gz' do
@@ -25,7 +25,7 @@ Scenario: try to install cpan module with unexisted distributive
     * it should exit '0'
     * I run 'perl -MBundler -e 1'
     * it should exit '2'
-    * 'stdout' should have 'Can't locate Bundler\.pm'
+    * 'stderr' should have 'Can't locate Bundler\.pm'
     Given I have chef recipe:
     """
     cpan_client 'Bundler' do
@@ -40,5 +40,5 @@ Scenario: try to install cpan module with unexisted distributive
     Then 'stdout' should have 'Errno::ENOENT: No such file or directory'
     When I run 'perl -MBundler -e 1'
     Then it should exit '2'
-    And 'stdout' should have 'Can't locate Bundler\.pm'
+    And 'stderr' should have 'Can't locate Bundler\.pm'
 

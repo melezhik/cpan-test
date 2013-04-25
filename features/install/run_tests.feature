@@ -5,7 +5,7 @@ Scenario: install cpan module
     * it should exit '0'
     * I run 'perl -MBundler -e 1'
     * it should exit '2'
-    * 'stdout' should have 'Can't locate Bundler\.pm'
+    * 'stderr' should have 'Can't locate Bundler\.pm'
     Given I have chef recipe:
     """
     cpan_client 'Bundler' do
@@ -20,5 +20,5 @@ Scenario: install cpan module
     Then 'stdout' should have '\./Build test -- OK'
     And I run 'perl -MBundler -e 1'
     Then it should exit '2'
-    And 'stdout' should have 'Can't locate Bundler\.pm'
+    And 'stderr' should have 'Can't locate Bundler\.pm'
 
