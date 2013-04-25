@@ -6,6 +6,6 @@ before_install:
   - curl -L http://cpanmin.us | perl - --sudo App::cpanminus
   - sudo cpanm CPAN
   - sudo cpanm App::pmuninstall
-  - sudo apt-get install chef
+  - gem install chef --no-ri --no-rdoc
   - gem install cucumber-nagios --no-ri --no-rdoc
 script: rvmsudo_secure_path=1 rvmsudo cucumber 
