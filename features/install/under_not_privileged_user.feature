@@ -1,9 +1,9 @@
 Feature: cpan_client should be able to install under not privileged user
 
 Scenario: install cpan module
-    * I run 'sudo groupadd melezhik -m'
+    * I run 'sudo groupadd melezhik'
     * it should exit '0'
-    * I run 'sudo useradd melezhik -g melezhik'
+    * I run 'sudo useradd melezhik -g melezhik -m'
     * it should exit '0'
    * I run 'rm -rf /tmp/foo/'
     * it should exit '0'
@@ -29,7 +29,7 @@ Scenario: install cpan module
     end
     """
     When I run chef recipe on my node
-    Then 'stdout' should have 'Bundler -- OK'
+    #Then 'stdout' should have 'Bundler -- OK'
     And I run 'eval $(perl -Mlocal::lib=/tmp/foo/bar/); perl -MBundler -e 1'
     Then it should exit '0'
     And the file named '/tmp/foo/bar/lib/perl5/' should be owned by 'melezhik'
