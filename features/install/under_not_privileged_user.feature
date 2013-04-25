@@ -1,7 +1,7 @@
 Feature: cpan_client should be able to install under not privileged user
 
 Scenario: install cpan module
-    * I run 'sudo groupadd melezhik'
+    * I run 'sudo groupadd melezhik -m'
     * it should exit '0'
     * I run 'sudo useradd melezhik -g melezhik'
     * it should exit '0'
