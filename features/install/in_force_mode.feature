@@ -17,7 +17,7 @@ Scenario: install cpan module
     end
     """
     When I run chef recipe on my node
-    Then 'stdout' should have 'force'
+    Then 'stdout' should have 'force: true'
     And I run 'perl -MBundler -e 1'
     Then it should exit '0'
 

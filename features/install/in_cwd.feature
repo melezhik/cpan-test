@@ -7,6 +7,8 @@ Scenario: install cpan module
     * I run 'mkdir -p /tmp/foo/bar/'
     * it should exit '0'
     * a directory named '/tmp/foo/bar/' should exist
+    * I run 'pm-uninstall -nf Bundler'
+    * it should exit '0'
     * I run 'pm-uninstall -nf Bundler -l /tmp/foo/bar/'
     * it should exit '0'
     * I run 'eval $(perl -Mlocal::lib=/tmp/foo/bar/); perl -MBundler -e 1'

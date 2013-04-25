@@ -28,7 +28,7 @@ Scenario: try to install cpan module with unexisted distributive
     * 'stderr' should have 'Can't locate Bundler\.pm'
     Given I have chef recipe:
     """
-    cpan_client 'Bundler' do
+    cpan_client 'Bundler-v0.0.29.tar.gz' do
         from_cookbook 'test'
         install_type 'cpan_module'
         user 'root'
