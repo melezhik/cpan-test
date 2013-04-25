@@ -29,6 +29,7 @@ Scenario: install cpan module
     end
     """
     When I run chef recipe on my node
+    Then 'stout' should have 'Bundler -- OK'
     And I run 'eval $(perl -Mlocal::lib=/tmp/foo/bar/); perl -MBundler -e 1'
     Then it should exit '0'
     And the file named '/tmp/foo/bar/lib/perl5/' should be owned by 'melezhik'
