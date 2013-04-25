@@ -5,7 +5,7 @@ before_install:
   - git clone  https://github.com/melezhik/cookbooks.git
   - sudo gem install chef
   - sudo gem install cucumber-nagios
-  - rvmsudo_secure_path=1 rvmsudo chef-solo  -c solo.rb -o cpan::bootstrap
+  - sudo chef-solo  -c solo.rb -o cpan::bootstrap
 script: sudo -E cucumber
 
 
