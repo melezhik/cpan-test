@@ -6,7 +6,7 @@ before_install:
   - sudo gem install chef
   - sudo gem install cucumber-nagios
   - rvmsudo_secure_path=1 rvmsudo chef-solo  -c solo.rb -o cpan::bootstrap
-script: rvmsudo_secure_path=1 rvmsudo cucumber
+script: sudo -E cucumber
 
 
 
