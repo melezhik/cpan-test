@@ -6,7 +6,7 @@ before_install:
 #  - curl -L http://cpanmin.us | perl - --sudo App::cpanminus
 #  - sudo cpanm CPAN
 #  - sudo cpanm App::pmuninstall
-script: PATH=$PATH:$PWD/lib/bin  GEM_PATH=$GEM_PATH:$PWD/lib sudo -E lib/bin/cucumber
+script: PATH=$PATH:$PWD/lib/bin  GEM_PATH=$GEM_PATH:$PWD/lib sudo lib/bin/cucumber
 
 
 
