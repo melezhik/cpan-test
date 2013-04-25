@@ -8,4 +8,4 @@ before_install:
   - sudo cpanm App::pmuninstall
   - sudo apt-get install chef
   - gem install cucumber-nagios --no-ri --no-rdoc
-script: rvmsudo cucumber 
+script: rvmsudo_secure_path=1 rvmsudo cucumber 
